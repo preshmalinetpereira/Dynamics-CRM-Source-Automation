@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Settings>
+  <UserSettings>
+    <UserName></UserName>
+    <Password></Password>
+  </UserSettings>
+  <DirectorySettings>
+    <SolutionPackager>SolutionPackager.exe</SolutionPackager>
+    <SolutionFiles></SolutionFiles>
+    <SolutionFilesSrc></SolutionFilesSrc>
+    <ExportedFileName></ExportedFileName>
+    <ImportedFileName></ImportedFileName>
+    <MapFile></MapFile>
+  </DirectorySettings>
+  <CRMSettings>
+    <!--Uncomment to export-->
+    <FromServerURL></FromServerURL>
+    <!--Uncomment to import-->
+    <ToServerURL></ToServerURL>
+    <SolutionName>TestSolution</SolutionName>
+  </CRMSettings>
+</Settings>

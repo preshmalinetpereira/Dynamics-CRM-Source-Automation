@@ -1,0 +1,27 @@
+<Configuration>
+    <CrmConnectionString>AuthType=Office365;Url=;Username=Dummy;Password=Dummy</CrmConnectionString>
+	<Assemblies>
+        <Assembly>
+	        <Path>..\bin\Debug</Path>
+            <!--Type can be Plugin or WorkflowActivity-->
+            <Solution Type="Plugin" Assembly="Test.dll" IsolationMode="Sandbox" SourceType="Database">
+                <PluginType FriendlyName="MyTestPlugin" Name="MyTestPlugin" TypeName="MyTestPlugin">
+                    <!--Mode:1=Asynchronous,0=Synchronous;Rank:ExecutionOrder{recommended 1};Stage:10=Pre-validation,20=Pre-operation,40=Post-operation;Supported Deployment:0=serveronly,1=offlineonly,2=both;Invocation Source:0=Parent,1=Child-->
+                    <Step Name="PostCreateContact" Description="Post-Operation of Create of Contact" MessageName="Create" Mode="1" PrimaryEntityName="contact" Rank="1" SecureConfiguration="" Stage="40" SupportedDeployment="0" >
+                        <!--ImageType:1-Post Image,2-Both,0-PreImage;Attributes:comma-separated-string;messagepropertyname:For Create="Id",For Update="Target"-->
+                        <Image Attributes="address1_city,fullname,ownerid" EntityAlias="PostImageCreate" Name="PostImageCreate" MessagePropertyName="Id" ImageType="1" />
+                    </Step>
+                </PluginType>
+            </Solution>
+        </Assembly>
+        <Assembly>
+            <Path>..\bin\Debug</Path>
+            <Solution Type="WorkflowActivity" Assembly="WorkflowActivties.dll" IsolationMode="Sandbox" SourceType="Database">
+                <PluginType FriendlyName="TestGitWorkFlowActivity" Name="TestGitWorkflowActivity" Description="Test" WorkflowActivityGroupName="TestGitWorkFlowActivities" TypeName="WorkflowActivties.TestWorkflowActivity" />
+            </Solution>
+        </Assembly>
+    </Assemblies>
+</Configuration>
+
+
+
